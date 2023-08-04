@@ -35,7 +35,8 @@ namespace TeleTrader.Extensions
                       FROM Symbol s
                       JOIN Exchange e ON s.ExchangeId=e.Id
                       JOIN Type t ON s.TypeId=t.Id
-                      WHERE 1 {whereClause}";
+                      WHERE 1 {whereClause}
+                      ORDER BY s.DateAdded DESC";
 
             DataTable table = new DataTable();
 
@@ -97,7 +98,7 @@ namespace TeleTrader.Extensions
             }
         }
 
-        // Metod za EditSymbol
+        // Metod za EditSymbol-a
         public void EditSymbol(EditOrAddSymbol symbol)
         {
             IsConnStringSet();
@@ -133,6 +134,37 @@ namespace TeleTrader.Extensions
                 command.ExecuteNonQuery();
             }
         }
+
+        // Metod Add symbol
+        public void AddSymbol(EditOrAddSymbol symbol)
+        {
+            IsConnStringSet();
+
+            // Construct the SQL query to insert a new row into the Symbol table
+            string query = @"
+                            INSERT INTO Symbol (Name, Ticker, Isin, CurrencyCode, Price, PriceDate, ExchangeId, TypeId, DateAdded)
+                            VALUES (@NewSymbolName, @Ticker, @Isin, @CurrencyCode, @Price, @PriceDate, 
+                                    (SELECT Id FROM Exchange WHERE Name = @ExName),
+                                    (SELECT Id FROM Type WHERE Name = @TypeName), @DateAdded)";
+
+            using (SQLiteConnection connection = new SQLiteConnection(_connectionString))
+            using (SQLiteCommand command = new SQLiteCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@NewSymbolName", symbol.NewSymbolName);
+                command.Parameters.AddWithValue("@Ticker", symbol.Ticker);
+                command.Parameters.AddWithValue("@Isin", symbol.Isin);
+                command.Parameters.AddWithValue("@CurrencyCode", symbol.CurrencyCode);
+                command.Parameters.AddWithValue("@Price", symbol.Price);
+                command.Parameters.AddWithValue("@PriceDate", symbol.PriceDate.ToString("yyyy-MM-dd"));
+                command.Parameters.AddWithValue("@ExName", symbol.ExName);
+                command.Parameters.AddWithValue("@TypeName", symbol.TypeName);
+                command.Parameters.AddWithValue("@DateAdded", symbol.DateAdded.ToString("yyyy-MM-dd"));
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
 
         // Delete Symbol
         public void DeleteSymbol(string symbolName)

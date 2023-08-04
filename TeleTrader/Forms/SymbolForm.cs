@@ -46,7 +46,12 @@ namespace TeleTrader.Forms
 
         private void SetFormValues(Symbol symbol)
         {
+            // Podešavanja forme
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Text = _mode+" Symbol";
+
+            // Podešavanje polja
             textBoxSyName.Text = symbol != null ? symbol.OriginalSymbolName : "";
             textBoxTicker.Text = symbol != null ? symbol.Ticker : "";
             textBoxIsin.Text = symbol != null ? symbol.Isin : "";
@@ -115,13 +120,16 @@ namespace TeleTrader.Forms
                     {
                         NewSymbolName = textBoxSyName.Text,
                         Ticker = textBoxTicker.Text,
+                        Isin = textBoxIsin.Text,
+                        CurrencyCode = textBoxCurrency.Text,
                         Price = double.Parse(textBoxPrice.Text),
+                        PriceDate = dateTimePickerPriceDate.Value,
                         ExName = comboBoxExch.SelectedItem?.ToString(),
                         TypeName = comboBoxType.SelectedItem?.ToString(),
+                        DateAdded= _symbol.DateAdded,
                     };
                     break;
                 case FormMode.ViewOrEdit:
-
                     ModifiedSymbol = new EditOrAddSymbol
                     {
                         OriginalSymbolName = _symbol.OriginalSymbolName,
@@ -134,11 +142,14 @@ namespace TeleTrader.Forms
                         ExName = comboBoxExch.SelectedItem?.ToString(),
                         TypeName = comboBoxType.SelectedItem?.ToString(),
                     };
-                   
-                    DialogResult = DialogResult.OK;
-                    Close();
                     break;
+                default:
+                    throw new InvalidOperationException("Invalid form mode.");
             }
+            DialogResult = DialogResult.OK;
+            Close();
         }
+
+       
     }
 }

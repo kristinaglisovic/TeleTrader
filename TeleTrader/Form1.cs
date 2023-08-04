@@ -15,6 +15,9 @@ namespace TeleTrader
             // Fill-ovanje kolona kako ne bi postojao blank space
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
             DisableFormControls();
         }
         private void databaseToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -90,11 +93,11 @@ namespace TeleTrader
             {
                 try
                 {
-                    //  dataHandler.EditSymbol(modalForm.ModifiedSymbol);
+                    dataHandler.AddSymbol(modalForm.ModifiedSymbol);
 
                     LoadInitialForm();
 
-                    //  SelectRowBySymbolName(modalForm.ModifiedSymbol.NewSymbolName);
+                    SelectRowBySymbolName(modalForm.ModifiedSymbol.NewSymbolName);
                 }
                 catch (Exception ex)
                 {
