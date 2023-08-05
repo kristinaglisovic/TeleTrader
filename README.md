@@ -14,6 +14,7 @@ Ovaj repozitorijum sadrži kod aplikacije TeleTrader.
 - Unload baze: Ukoliko korisnik želi da učita bazu sa drugačijim vrednostima.
 - Validacija polja: Dodata je validacija polja pri izmeni ili dodavanju simbola kako bi se smanjila mogućnost greške.
 - Data counter: Dodat je brojač učitanih podataka.
+- Validacija otvorenog fajla
 # Instalacija i pokretanje
 - Klonirajte repozitorijum kroz Visual Studio: https://github.com/kristinaglisovic/TeleTrader.git
 ili
