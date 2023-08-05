@@ -18,5 +18,5 @@ Ovaj repozitorijum sadrži kod aplikacije TeleTrader.
 # Instalacija i pokretanje
 - Klonirajte repozitorijum kroz Visual Studio: https://github.com/kristinaglisovic/TeleTrader.git
 ili
-- Koristite komandu git clone kako biste preuzeli kod na vaš lokalni računar: git clone https://github.com/vas-repo/teletrader-symbolform.git, a zatim ga pokrenite u Visual Studio-u
+- Koristite komandu git clone kako biste preuzeli kod na vaš lokalni računar: git clone https://github.com/kristinaglisovic/TeleTrader.git, a zatim ga pokrenite u Visual Studio-u
 - Build Solution kako biste generisali izvršnu datoteku i/ili kliknite na dugme "Start" u Visual Studio-u kako biste pokrenuli projekat.
