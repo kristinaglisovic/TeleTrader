@@ -8,10 +8,10 @@ Ovaj repozitorijum sadrži kod aplikacije TeleTrader.
 - Dodavanje simbola: Korisnici mogu da kreiraju nove simbole pružajući potrebne detalje (naziv simbola, ticker, cena, ..).
 - Pregled/Izmena simbola: Korisnici mogu da pregledaju ili izmene detalje postojećeg simbola.
 - Brisanje simbola: Korisnici mogu da obrišu selektovani simbol.
-- Učitavanje baze: Korisnici mogu da učitaju SQLite bazu odabirom putanje do nje.
+- Učitavanje baze: Korisnici mogu da učitaju SQLite bazu odabirom putanje.
 - Filtriranje simbola po Stockexchange-u i Type-u
 # Dodatne funkcionalnosti
-- Unload baze: Ukoliko korisnik želi da promeni bazu.
+- Unload baze: Ukoliko korisnik želi da promeni bazu sa drugačijim vrednostima.
 - Validacija polja: Dodata je validacija polja pri izmeni ili dodavanju simbola kako bi se smanjila mogućnost greške.
 - Data counter: Dodat je brojač učitanih podataka.
 # Instalacija i pokretanje
