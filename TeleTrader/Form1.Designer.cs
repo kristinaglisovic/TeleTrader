@@ -45,6 +45,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lbDataCount = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,7 +58,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(866, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(874, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -194,11 +195,22 @@
             this.lbDataCount.TabIndex = 11;
             this.lbDataCount.Text = "Data Count: 0";
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(694, 533);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(113, 39);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "Form Close";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 568);
+            this.ClientSize = new System.Drawing.Size(874, 596);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.lbDataCount);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -240,5 +252,6 @@
         private Button button4;
         private Label lbDataCount;
         private ToolStripMenuItem unloadDatabaseToolStripMenuItem;
+        private Button button5;
     }
 }
